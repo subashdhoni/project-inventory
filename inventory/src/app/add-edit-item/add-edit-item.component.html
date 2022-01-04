@@ -1,0 +1,98 @@
+<br>
+<br> 
+    <div class="add">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-6">
+          <!-- *ngIf="createFlag" -->
+            <h5 >Add Product</h5>
+            <br>  
+            <h5 *ngIf="editFlag">Edit Product</h5>
+        </div>
+        <!-- (ngSubmit)="onSubmit()" -->
+        <form [formGroup]="addEditForm" >
+            <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <label for="procode"> Product Code* </label>
+                <input type="number" id="code" name="name" formControlName="code">
+              
+              <div style="color: red;"
+                   *ngIf="!addEditForm.controls.code?.valid && (addEditForm.controls.code?.dirty
+                   ||addEditForm.controls.code?.touched)">
+                   Enter Proper Product Code
+              </div> 
+            </div>
+            <div class="col-sm-4">
+              <label for="name"> Product Name* </label>
+              <input type="text" id="name" name="name" formControlName="name">
+            
+            <div style="color: red;"
+                 *ngIf="!addEditForm.controls.name?.valid && (addEditForm.controls.name?.dirty
+                 ||addEditForm.controls.name?.touched)">
+                 Enter Proper Product Name
+            </div>
+        </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <label for="price"> Price*        </label>
+                <input type="number" id="name" name="name" formControlName="price">
+              
+              <div style="color: red;"
+                   *ngIf="!addEditForm.controls.price?.valid && (addEditForm.controls.price?.dirty
+                   ||addEditForm.controls.price?.touched)">
+                   Enter Proper Price
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+                <label for="quantity"> Quantity* <small>(in Kgs) </small></label>
+                <input type="number" id="name" name="name" formControlName="quantity">
+              
+              <div style="color: red;"
+                   *ngIf="!addEditForm.controls.quantity?.valid && (addEditForm.controls.quantity?.dirty
+                   ||addEditForm.controls.quantity?.touched)">
+                   Enter Proper Quantity
+              </div> 
+            </div>
+              <div class="col-sm-2"></div>
+        </div>
+        <br>
+        <div class="clear-10"></div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+              
+                <label for="description"> Description </label>
+              <textarea type="text" class="form-control" id="desc" name="desc" row="3" formControlName="description"></textarea>
+              <small>* Required Fields</small>
+              <div class="col-sm-2"></div>
+            </div>
+            </div>
+            <div class="clear-15"></div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8"></div>
+                
+            <div class="row">
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-sm btn-secondary" [routerLink]="['/']">Cancel</button>
+            </div>
+            <div class="col-sm-5">
+                    <!-- <button  type="submit" class="btn btn-sm btn-primary"  [disabled]="!addEditForm.valid" (click)="updateItem()" >Update</button>&nbsp; -->
+            </div>
+            <div class="col-sm-3">
+                <button type="submit" class="btn btn-sm btn-primary"  [disabled]="!addEditForm.valid" (click)="saveItem()" >Save</button>
+                </div>
+            </div>
+            <div class="col-sm-2"></div>
+           </div>
+          </form>
+    </div>
+</div>
+<!-- *ngIf="createFlag"  -->
+
